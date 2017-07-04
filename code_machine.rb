@@ -1,5 +1,4 @@
-puts "encrypt_with_caesar('Podaj tekst do zaszyfrowania')"
-def encrypt_with_caesar(original_message, shift=5)
+def encrypt_with_caesar(original_message, shift = 5)
   alphabet = Array('a'..'z')
   encrypted_message = ""
   original_message.downcase.split('').each do |letter|
@@ -12,16 +11,21 @@ def encrypt_with_caesar(original_message, shift=5)
     end
   end
   puts encrypted_message
-  encrypted_message=gets.chomp
-  puts "Szyfrujemy dalej? (T/N)"
-  text=gets.chomp
-  text.downcase
-    if text == "N"
-      encrypted_message = "Koniec szyfrowania"
-    else
-      text == "T"
-      puts "encrypt_with_caesar('Podaj tekst do zaszyfrowania')"
-    end
-      rescue
-      puts "Uzywaj tylko liter"
+  rescue
+  puts "Uzywaj tylko liter"
 end
+puts "Podaj tekst do zaszyfrowania:"
+original_message=gets.chomp
+original_message.downcase
+encrypt_with_caesar(original_message)
+puts "Szyfrujemy dalej? (tak/nie)"
+text=gets.chomp
+  if text == "nie"
+    puts "Koniec szyfrowania"
+  else
+    text == "tak"
+    puts "Podaj tekst do zaszyfrowania:"
+    original_message = gets.chomp
+    encrypt_with_caesar(original_message)
+  end 
+
